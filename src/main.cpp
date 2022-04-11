@@ -13,12 +13,10 @@
 // Standard library includes
 #include <iostream>
 #include <string>
-#include <sstream>
-#include <cstring>
 
 
 // Headers
-#include <utilities.h>
+#include "../inc/utilities.h"
 
 
 // Struct
