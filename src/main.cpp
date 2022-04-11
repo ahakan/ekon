@@ -13,6 +13,7 @@
 // Standard library includes
 #include <iostream>
 #include <string>
+#include <memory>
 
 
 // Headers
@@ -37,56 +38,56 @@ struct data
  */
 int main(int argc, char const *argv[])
 {
-    Utilities *pUtil = nullptr;
-
-    std::string decimalToBin = pUtil->conDecToBinary(exchange_data.A);
+    std::unique_ptr<Utilities> pUtil;
+    
+    std::string decimalToBin = pUtil.get()->conDecToBinary(exchange_data.A);
 
     std::cout << "Decimal to Binary(7 Bits): " << decimalToBin << std::endl;
 
-    std::string binaryWithStopBit = pUtil->stopBitEncoding(decimalToBin);
+    std::string binaryWithStopBit = pUtil.get()->stopBitEncoding(decimalToBin);
 
     std::cout << "Binary with Stop Bit(8 Bits): " << binaryWithStopBit << std::endl;
 
-    std::string binaryToHex = pUtil->conBinaryToHex(binaryWithStopBit);
+    std::string binaryToHex = pUtil.get()->conBinaryToHex(binaryWithStopBit);
 
     std::cout << "Binary to Hex: " << binaryToHex << std::endl;
 
     std::cout << " ------------------- " << std::endl;
 
-    std::string asciiToHex = pUtil->conAsciiToHex(exchange_data.B);
+    std::string asciiToHex = pUtil.get()->conAsciiToHex(exchange_data.B);
 
     std::cout << "ASCII to Hex: " << asciiToHex << std::endl;
 
-    std::string hexToBinary = pUtil->conHexToBinary(asciiToHex);
+    std::string hexToBinary = pUtil.get()->conHexToBinary(asciiToHex);
 
     std::cout << "Hex to Binary (7 Bits): " << hexToBinary << std::endl;
 
-    std::string binaryWithStopBit2 = pUtil->stopBitEncoding(hexToBinary);
+    std::string binaryWithStopBit2 = pUtil.get()->stopBitEncoding(hexToBinary);
 
     std::cout << "Binary with Stop Bit(8 Bits): " << binaryWithStopBit2 << std::endl;
 
-    std::string binaryToHex2 = pUtil->conBinaryToHex(binaryWithStopBit2);
+    std::string binaryToHex2 = pUtil.get()->conBinaryToHex(binaryWithStopBit2);
 
     std::cout << "Binary to Hex: " << binaryToHex2 << std::endl;
 
     std::cout << " ------------------- " << std::endl;
 
-    std::string decimalToBin2 = pUtil->conDecToBinary(exchange_data.C);
+    std::string decimalToBin2 = pUtil.get()->conDecToBinary(exchange_data.C);
 
     std::cout << "Decimal to Binary(7 Bits): " << decimalToBin2 << std::endl;
 
-    std::string binaryWithStopBit3 = pUtil->stopBitEncoding(decimalToBin2);
+    std::string binaryWithStopBit3 = pUtil.get()->stopBitEncoding(decimalToBin2);
 
     std::cout << "Binary with Stop Bit(8 Bits): " << binaryWithStopBit3 << std::endl;
 
-    std::string binaryToHex3 = pUtil->conBinaryToHex(binaryWithStopBit3);
+    std::string binaryToHex3 = pUtil.get()->conBinaryToHex(binaryWithStopBit3);
 
     std::cout << "Binary to Hex: " << binaryToHex3 << std::endl;
 
 
     std::cout << " ------------------- " << std::endl;
 
-    std::cout << "Last message: " << binaryToHex <<  " " << binaryToHex2 << " " << binaryToHex3 << std::endl;
+    std::cout << "Message: " << binaryToHex <<  " " << binaryToHex2 << " " << binaryToHex3 << std::endl;
 
     return 0;
 }
